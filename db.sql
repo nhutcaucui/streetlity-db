@@ -60,7 +60,7 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37     generalinfo varchar(255),
 \par \hich\af37\dbch\af31505\loch\f37     nodenum int,
 \par \hich\af37\dbch\af31505\loch\f37     nodes varchar(50\hich\af37\dbch\af31505\loch\f37 0),
-\par \tab \hich\af37\dbch\af31505\loch\f37 nodecost varchar(500),
+\par \tab \hich\af37\dbch\af31505\loch\f37 cost float,
 \par \hich\af37\dbch\af31505\loch\f37     oneway BOOLEAN DEFAULT 0,
 \par \tab \hich\af37\dbch\af31505\loch\f37 onewayfrom varchar(50),
 \par \hich\af37\dbch\af31505\loch\f37 CONSTRAINT street_key
@@ -70,7 +70,7 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37 CREATE TABLE nodes (
 \par \tab \hich\af37\dbch\af31505\loch\f37 id int(10) NOT NULL AUTO_INCREMENT,
 \par \hich\af37\dbch\af31505\loch\f37     lat float,
-\par \hich\af37\dbch\af31505\loch\f37     longt float,
+\par \hich\af37\dbch\af31505\loch\f37     lon float,
 \par \hich\af37\dbch\af31505\loch\f37     streets varchar(500),
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT node_key
 \par \hich\af37\dbch\af31505\loch\f37     PRIMARY KEY (id)
@@ -86,7 +86,7 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37 CREATE TABLE toilet(
 \par \tab \hich\af37\dbch\af31505\loch\f37 id int(10) NOT NULL AUTO_INCREMENT,
 \par \hich\af37\dbch\af31505\loch\f37     lat float,
-\par \hich\af37\dbch\af31505\loch\f37    \hich\af37\dbch\af31505\loch\f37  longt float,
+\par \hich\af37\dbch\af31505\loch\f37    \hich\af37\dbch\af31505\loch\f37  lon float,
 \par \hich\af37\dbch\af31505\loch\f37     isworking boolean,
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT toilet_key
 \par \tab \hich\af37\dbch\af31505\loch\f37 PRIMARY KEY (id)
@@ -95,7 +95,7 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37 CREATE TABLE fuel(
 \par \tab \hich\af37\dbch\af31505\loch\f37 id int(10) NOT NULL AUTO_INCREMENT,
 \par \hich\af37\dbch\af31505\loch\f37     lat float,
-\par \hich\af37\dbch\af31505\loch\f37     longt float,
+\par \hich\af37\dbch\af31505\loch\f37     lon float,
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT fuel_key
 \par \tab \hich\af37\dbch\af31505\loch\f37 PRIMARY KEY (id)
 \par \hich\af37\dbch\af31505\loch\f37 );
@@ -103,7 +103,7 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37 CREATE TABLE atm(
 \par \tab \hich\af37\dbch\af31505\loch\f37 id int(10) NOT NULL AUTO_INCREMENT,
 \par \hich\af37\dbch\af31505\loch\f37     lat float,
-\par \hich\af37\dbch\af31505\loch\f37     longt float,
+\par \hich\af37\dbch\af31505\loch\f37     lon float,
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT atm_key
 \par \tab \hich\af37\dbch\af31505\loch\f37 PRIMARY KEY (id)
 \par \hich\af37\dbch\af31505\loch\f37 );
@@ -111,7 +111,7 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37 CREATE TABLE maintenance(
 \par \tab \hich\af37\dbch\af31505\loch\f37 id int(10) NOT NULL AUTO_INCREMENT,
 \par \hich\af37\dbch\af31505\loch\f37     lat float,
-\par \hich\af37\dbch\af31505\loch\f37     longt float,
+\par \hich\af37\dbch\af31505\loch\f37     lon float,
 \par \hich\af37\dbch\af31505\loch\f37     iscallable boolean,
 \par \hich\af37\dbch\af31505\loch\f37     phone varchar(10),
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT maintenance_key
@@ -122,20 +122,20 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \tab \hich\af37\dbch\af31505\loch\f37 id int(10) NOT NULL AUTO_INCREMENT,
 \par \hich\af37\dbch\af31505\loch\f37     score int NOT NULL,
 \par \hich\af37\dbch\af31505\loch\f37     body varchar(255),
-\par \hich\af37\dbch\af31505\loch\f37     belongto int(10),
+\par \hich\af37\dbch\af31505\loch\f37     belono int(10),
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT review_key
 \par \tab \hich\af37\dbch\af31505\loch\f37 PRIMARY KEY (id),
 \par \hich\af37\dbch\af31505\loch\f37     CONSTRAINT belong_key
-\par \hich\af37\dbch\af31505\loch\f37     FOREIGN KEY (belongto) REFERENCES maintenance (id)
+\par \hich\af37\dbch\af31505\loch\f37     FOREIGN KEY (belono) REFERENCES maintenance (id)
 \par \hich\af37\dbch\af31505\loch\f37 );
 \par 
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO streets(id, generalinfo, nodenum, nodes,nodecost, oneway,onewayfrom) VALUES 
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO streets(id, generalinfo, nodenum, nodes,cost, oneway,onewayfrom) VALUES 
 \par \hich\af37\dbch\af31505\loch\f37 ("1", "abc", 3, "1;2;3", "0;10;20", 0, NULL),
 \par \hich\af37\dbch\af31505\loch\f37 ("2", "xyz", 3, "4;2;5", "0;10;20", 0, NULL),
 \par \hich\af37\dbch\af31505\loch\f37 ("3", "help", 2,\hich\af37\dbch\af31505\loch\f37  "6;4", "0;30", 0, NULL),
 \par \hich\af37\dbch\af31505\loch\f37 ("4", "me", 3, "6,3,5", "0;10;20", 0, NULL);
 \par 
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO nodes(lat,longt,streets) VALUES
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO nodes(lat,lon,streets) VALUES
 \par \hich\af37\dbch\af31505\loch\f37 (0,0,"1"),
 \par \hich\af37\dbch\af31505\loch\f37 (0,10,"1;2"),
 \par \hich\af37\dbch\af31505\loch\f37 (0,20,"1;4"),
@@ -151,11 +151,11 @@ Normal Table;}}{\*\rsidtbl \rsid9833348\rsid14246514}{\mmathPr\mmathFont34\mbrkB
 \par \hich\af37\dbch\af31505\loch\f37 ("S}{\rtlch\fcs1 \af37 \ltrch\fcs0 \f37\lang9\langfe1033\langnp9\insrsid14246514\charrsid14246514 \loch\af37\dbch\af31505\hich\f37 \u7917\'3f}{\rtlch\fcs1 \af37 \ltrch\fcs0 
 \f37\lang9\langfe1033\langnp9\insrsid14246514\charrsid14246514 \hich\af37\dbch\af31505\loch\f37 a xe");
 \par 
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO toilet (lat,longt,isworking) VALUES (10,10,1);
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO fuel (lat,longt) VALUES (-10,-10);
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO atm (lat,longt) VALUES (15,0);
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO maintenance (lat,longt,iscallable,phone) VALUES (5,5,1,"0123\hich\af37\dbch\af31505\loch\f37 45678");
-\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO review (score,body,belongto) VALUES (5,"xinso",1);}{\rtlch\fcs1 \af31507 \ltrch\fcs0 \insrsid9833348\charrsid14246514 
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO toilet (lat,lon,isworking) VALUES (10,10,1);
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO fuel (lat,lon) VALUES (-10,-10);
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO atm (lat,lon) VALUES (15,0);
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO maintenance (lat,lon,iscallable,phone) VALUES (5,5,1,"0123\hich\af37\dbch\af31505\loch\f37 45678");
+\par \hich\af37\dbch\af31505\loch\f37 INSERT INTO review (score,body,belono) VALUES (5,"xinso",1);}{\rtlch\fcs1 \af31507 \ltrch\fcs0 \insrsid9833348\charrsid14246514 
 \par }{\*\themedata 504b030414000600080000002100e9de0fbfff0000001c020000130000005b436f6e74656e745f54797065735d2e786d6cac91cb4ec3301045f748fc83e52d4a
 9cb2400825e982c78ec7a27cc0c8992416c9d8b2a755fbf74cd25442a820166c2cd933f79e3be372bd1f07b5c3989ca74aaff2422b24eb1b475da5df374fd9ad
 5689811a183c61a50f98f4babebc2837878049899a52a57be670674cb23d8e90721f90a4d2fa3802cb35762680fd800ecd7551dc18eb899138e3c943d7e503b6
