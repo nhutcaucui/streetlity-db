@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS map;
+
 CREATE DATABASE map;
 
 USE map;
@@ -25,7 +27,7 @@ CONSTRAINT street_key
 );
 
 CREATE TABLE nodes (
-	id int(10) NOT NULL AUTO_INCREMENT,
+	id bigint NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
     streets varchar(500),
