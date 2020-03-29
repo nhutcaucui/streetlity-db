@@ -16,9 +16,7 @@ DROP TABLE IF EXISTS maintenance;
 
 CREATE TABLE streets (
 	id varchar(15) NOT NULL,
-    generalinfo varchar(255),
-    nodenum int,
-    nodes varchar(500),
+    generalinfo varchar(1024),
 	cost float,
     oneway BOOLEAN DEFAULT 0,
 	onewayfrom varchar(50),
