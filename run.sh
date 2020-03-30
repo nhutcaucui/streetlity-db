@@ -1,5 +1,5 @@
 echo "STOP RUNNING COMMON MYSQL CONTAINER"
-docker exec mysql_container mysqld --shutdown
+#docker exec mysql_container mysqld --shutdown
 docker stop -t 30 mysql_container
 docker rm -f mysql_container
 echo "DONE STOPPING"
@@ -11,5 +11,9 @@ docker run --name mysql_container -d \
 		-p 33060:3306 \
 		-e MYSQL_ROOT_PASSWORD=streetlity \
                 --restart always \
-           mysql:latest
+           mysql_container:latest
+
+#docker exec -i /usr/local/mysql/support-files/mysql.server start
+
+docker exec -i mysql_container mysql -u root -p streetlity < map-db-product.sql
 echo "DONE STARTING"
