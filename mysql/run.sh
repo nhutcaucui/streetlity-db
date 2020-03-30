@@ -7,9 +7,9 @@ echo "DONE STOPPING"
 echo "STARTING RUNNING COMMON MYSQL CONTAINER"
 docker run --name mysql_container -d \
            -v common_mysql_volume:/var/lib/mysql \
-                --network common_net \
+                --network common-net \
 		-p 33060:3306 \
-		-e MYSQL_ROOT_PASSWORD=eyeqtech,MYSQL_DATA_BASE=VIDEOSERVER \
+		-e MYSQL_ROOT_PASSWORD=streetlity \
                 --restart always \
            mysql:latest
 echo "DONE STARTING"
