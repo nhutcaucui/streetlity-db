@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS services;
 DROP TABLE IF EXISTS toilet;
 DROP TABLE IF EXISTS fuel;
 DROP TABLE IF EXISTS atm;
+DROP TABLE IF EXISTS bank;
 DROP TABLE IF EXISTS maintenance;
 
 
@@ -61,8 +62,17 @@ CREATE TABLE atm(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
+    bank_id int(10),
+    CONSTRAINT bank_key
+    FOREIGN KEY (bank_id) REFERENCES bank (id), 
     CONSTRAINT atm_key
 	PRIMARY KEY (id)
+);
+
+CREATE TABLE bank(
+    id int(10) AUTO_INCREMENT,
+    name varchar(255),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE maintenance(
@@ -79,9 +89,6 @@ CREATE TABLE review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     score int NOT NULL,
     body varchar(255),
-    belono int(10),
     CONSTRAINT review_key
-	PRIMARY KEY (id),
-    CONSTRAINT belong_key
-    FOREIGN KEY (belono) REFERENCES maintenance (id)
+    PRIMARY KEY (id)
 );
