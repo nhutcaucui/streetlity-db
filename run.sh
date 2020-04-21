@@ -1,5 +1,7 @@
+#/bin/bash
+
 echo "STOP RUNNING COMMON MYSQL CONTAINER"
-docker exec mysql_container mysqld --shutdown
+#docker exec mysql_container mysqld --shutdown
 docker stop -t 30 mysql_container
 docker rm -f mysql_container
 echo "DONE STOPPING"
@@ -11,5 +13,10 @@ docker run --name mysql_container -d \
 		-p 33060:3306 \
 		-e MYSQL_ROOT_PASSWORD=streetlity \
                 --restart always \
-           mysql:latest
-echo "DONE STARTING"
+           mysql_container:latest
+
+echo "AWAIT CONTAINER BEING UP"
+sleep 3
+mysql -P 33060 --protocol=tcp -u root --password=streetlity --reconnect < map-db-product.sql
+mysql -P 33060 --protocol=tcp -u root --password=streetlity < dummyinsert.sql
+#echo "DONE STARTING"
