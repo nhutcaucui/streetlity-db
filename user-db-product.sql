@@ -11,6 +11,7 @@ CREATE TABLE users (
 	id varchar(15) NOT NULL,
     username varchar(32),
     passwd varchar(32),
+    role int,
     CONSTRAINT user_key
     PRIMARY KEY (id)
 );
