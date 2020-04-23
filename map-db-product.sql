@@ -21,7 +21,7 @@ CREATE TABLE streets (
 	cost float,
     oneway BOOLEAN DEFAULT 0,
 	onewayfrom varchar(50),
-CONSTRAINT street_key
+    CONSTRAINT street_key
     PRIMARY KEY (id)
 );
 
@@ -50,6 +50,15 @@ CREATE TABLE toilet(
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE toilet_ucf(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    lat float,
+    lon float,
+    isworking boolean,
+    CONSTRAINT toilet_key
+	PRIMARY KEY (id)
+);
+
 CREATE TABLE fuel(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
@@ -58,7 +67,27 @@ CREATE TABLE fuel(
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE fuel_ucf(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    lat float,
+    lon float,
+    CONSTRAINT fuel_key
+	PRIMARY KEY (id)
+);
+
+
 CREATE TABLE atm(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    lat float,
+    lon float,
+    bank_id int(10),
+    CONSTRAINT bank_key
+    FOREIGN KEY (bank_id) REFERENCES bank (id), 
+    CONSTRAINT atm_key
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE atm_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
@@ -76,6 +105,16 @@ CREATE TABLE bank(
 );
 
 CREATE TABLE maintenance(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    lat float,
+    lon float,
+    iscallable boolean,
+    phone varchar(10),
+    CONSTRAINT maintenance_key
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE maintenance_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
