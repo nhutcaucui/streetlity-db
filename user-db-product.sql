@@ -9,14 +9,12 @@ DROP TABLE IF EXISTS tokens;
 
 CREATE TABLE users
 (
-    id varchar(15) NOT NULL,
-    username varchar(32),
+    id varchar(32) NOT NULL,
     passwd varchar(32),
     acces_level int,
-    info_id varchar(15),
-    CONSTRAINT info_key FOREIGN KEY (info_id) REFERENCES user_infos(id),
+    -- info_id varchar(15),
+    # CONSTRAINT info_key FOREIGN KEY (info_id) REFERENCES user_infos(id),
     CONSTRAINT user_key PRIMARY KEY (id)
-
 );
 
 CREATE TABLE user_infos
