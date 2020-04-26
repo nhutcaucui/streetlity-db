@@ -11,5 +11,5 @@ ENV MYSQL_PASSWORD streetlity
 
 USER mysql
  
-EXPOSE 3306 33061
+EXPOSE 3306 33060
 CMD ["mysqld", "--lc_messages_dir=/usr/share/mysql"]
