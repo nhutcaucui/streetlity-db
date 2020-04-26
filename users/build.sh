@@ -1,6 +1,6 @@
 #/bin/bash
 echo "Create infrastructure"
-docker volume create streetlity-user-volume
+docker volume create mysql-streetlity-user-volume
 echo "Remove old image"
 docker image rm mysql-streetlity-user
 echo "Build image"

@@ -8,7 +8,7 @@ echo "DONE STOPPING"
 #docker build . -t mysql:latest --no-cache
 echo "STARTING RUNNING COMMON MYSQL CONTAINER"
 docker run --name mysql-streetlity-user -d \
-           -v common_mysql_volume:/var/lib/mysql \
+           -v mysql-streetlity-user-volume:/var/lib/mysql \
                 --network common-net \
 		-p 33060:3306 \
 		-e MYSQL_ROOT_PASSWORD=streetlity \
