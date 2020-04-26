@@ -19,4 +19,4 @@ echo "AWAIT CONTAINER BEING UP"
 sleep 3
 mysql -P 33061 --protocol=tcp -u root --password=streetlity --reconnect < user-db-product.sql
 #mysql -P 33061 --protocol=tcp -u root --password=streetlity < dummyinsert.sql
-#echo "DONE STARTING"
+echo "DONE STARTING"
