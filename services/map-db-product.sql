@@ -55,6 +55,7 @@ CREATE TABLE toilet_ucf(
     lat float,
     lon float,
     isworking boolean,
+    confident int,
     CONSTRAINT toilet_key
 	PRIMARY KEY (id)
 );
@@ -71,6 +72,7 @@ CREATE TABLE fuel_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
+    confident int,
     CONSTRAINT fuel_key
 	PRIMARY KEY (id)
 );
@@ -92,6 +94,7 @@ CREATE TABLE atm_ucf(
     lat float,
     lon float,
     bank_id int(10),
+    confident int,
     CONSTRAINT bank_key
     FOREIGN KEY (bank_id) REFERENCES bank (id), 
     CONSTRAINT atm_key
@@ -120,6 +123,7 @@ CREATE TABLE maintenance_ucf(
     lon float,
     iscallable boolean,
     phone varchar(10),
+    confident int,
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
