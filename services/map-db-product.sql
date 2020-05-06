@@ -21,7 +21,6 @@ CREATE TABLE streets (
 	cost float,
     oneway BOOLEAN DEFAULT 0,
 	onewayfrom varchar(50),
-    CONSTRAINT street_key
     PRIMARY KEY (id)
 );
 
@@ -30,14 +29,12 @@ CREATE TABLE nodes (
     lat float,
     lon float,
     streets varchar(500),
-    CONSTRAINT node_key
     PRIMARY KEY (id)
 );
 
 CREATE TABLE services(
 	id int(10) NOT NULL AUTO_INCREMENT,
     name varchar(50),
-    CONSTRAINT service_key
 	PRIMARY KEY (id)
 );
 
@@ -46,7 +43,7 @@ CREATE TABLE toilet(
     lat float,
     lon float,
     isworking boolean,
-    CONSTRAINT toilet_key
+    address varchar(255),
 	PRIMARY KEY (id)
 );
 
@@ -56,7 +53,7 @@ CREATE TABLE toilet_ucf(
     lon float,
     isworking boolean,
     confident int,
-    CONSTRAINT toilet_key
+    address varchar(255),
 	PRIMARY KEY (id)
 );
 
@@ -64,7 +61,7 @@ CREATE TABLE fuel(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    CONSTRAINT fuel_key
+    address varchar(255),
 	PRIMARY KEY (id)
 );
 
@@ -73,7 +70,7 @@ CREATE TABLE fuel_ucf(
     lat float,
     lon float,
     confident int,
-    CONSTRAINT fuel_key
+    address varchar(255),
 	PRIMARY KEY (id)
 );
 
@@ -83,9 +80,8 @@ CREATE TABLE atm(
     lat float,
     lon float,
     bank_id int(10),
-    CONSTRAINT bank_key
+    address varchar(255),
     FOREIGN KEY (bank_id) REFERENCES bank (id), 
-    CONSTRAINT atm_key
 	PRIMARY KEY (id)
 );
 
@@ -95,9 +91,8 @@ CREATE TABLE atm_ucf(
     lon float,
     bank_id int(10),
     confident int,
-    CONSTRAINT bank_key
+    address varchar(255),
     FOREIGN KEY (bank_id) REFERENCES bank (id), 
-    CONSTRAINT atm_key
 	PRIMARY KEY (id)
 );
 
@@ -112,6 +107,7 @@ CREATE TABLE maintenance(
     lat float,
     lon float,
     iscallable boolean,
+    address varchar(255),
     phone varchar(10),
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
@@ -122,9 +118,9 @@ CREATE TABLE maintenance_ucf(
     lat float,
     lon float,
     iscallable boolean,
+    address varchar(255),
     phone varchar(10),
     confident int,
-    CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
 
@@ -132,6 +128,5 @@ CREATE TABLE review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     score int NOT NULL,
     body varchar(255),
-    CONSTRAINT review_key
     PRIMARY KEY (id)
 );
