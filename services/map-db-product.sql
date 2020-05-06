@@ -109,6 +109,7 @@ CREATE TABLE maintenance(
     iscallable boolean,
     address varchar(255),
     phone varchar(10),
+    owner int(10),
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
