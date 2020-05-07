@@ -1,19 +1,23 @@
-DROP DATABASE IF EXISTS map;
+DROP DATABASE IF EXISTS services;
 
-CREATE DATABASE map;
+CREATE DATABASE services;
 
-USE map;
+USE services;
 
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS streets;
 DROP TABLE IF EXISTS nodes;
 DROP TABLE IF EXISTS services;
 DROP TABLE IF EXISTS toilet;
+DROP TABLE IF EXISTS toilet_ucf;
 DROP TABLE IF EXISTS fuel;
+DROP TABLE IF EXISTS fuel_ucf;
 DROP TABLE IF EXISTS atm;
+DROP TABLE IF EXISTS atm_ucf;
 DROP TABLE IF EXISTS bank;
 DROP TABLE IF EXISTS maintenance;
-
+DROP TABLE IF EXISTS maintenance_ucf;
+DROP TABLE IF EXISTS maintenance_history;
 
 CREATE TABLE streets (
 	id varchar(15) NOT NULL,
@@ -123,6 +127,14 @@ CREATE TABLE maintenance_ucf(
     phone varchar(10),
     confident int,
 	PRIMARY KEY (id)
+);
+
+CREATE TABLE maintenance_history(
+    id int(15) NOT NULL AUTO_INCREMENT,
+    maintenance_user varchar(32) NOT NULL,
+    common_user varchar(32) NOT NULL,
+    timestamp DATETIME,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE review(
