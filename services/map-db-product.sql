@@ -81,6 +81,11 @@ CREATE TABLE fuel_ucf(
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE bank(
+    id int(10) AUTO_INCREMENT,
+    name varchar(255),
+    PRIMARY KEY (id)
+);
 
 CREATE TABLE atm(
 	id int(10) NOT NULL AUTO_INCREMENT,
@@ -105,11 +110,6 @@ CREATE TABLE atm_ucf(
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE bank(
-    id int(10) AUTO_INCREMENT,
-    name varchar(255),
-    PRIMARY KEY (id)
-);
 
 CREATE TABLE maintenance(
 	id int(10) NOT NULL AUTO_INCREMENT,
@@ -150,3 +150,4 @@ CREATE TABLE review(
     body varchar(255),
     PRIMARY KEY (id)
 );
+
