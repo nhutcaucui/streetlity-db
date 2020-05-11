@@ -119,7 +119,7 @@ CREATE TABLE maintenance(
     address varchar(255),
     iscallable boolean,
     phone varchar(10),
-    owner int(10),
+    owner varchar(32),
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
