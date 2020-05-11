@@ -46,8 +46,9 @@ CREATE TABLE toilet(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    isworking boolean,
+    note varchar(255),
     address varchar(255),
+    isworking boolean,
 	PRIMARY KEY (id)
 );
 
@@ -55,9 +56,9 @@ CREATE TABLE toilet_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    isworking boolean,
-    confident int,
+    note varchar(255),
     address varchar(255),
+    confident int,
 	PRIMARY KEY (id)
 );
 
@@ -65,6 +66,7 @@ CREATE TABLE fuel(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
+    note varchar(255),
     address varchar(255),
 	PRIMARY KEY (id)
 );
@@ -73,8 +75,9 @@ CREATE TABLE fuel_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    confident int,
+    note varchar(255),
     address varchar(255),
+    confident int,
 	PRIMARY KEY (id)
 );
 
@@ -83,8 +86,9 @@ CREATE TABLE atm(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    bank_id int(10),
+    note varchar(255),
     address varchar(255),
+    bank_id int(10),
     FOREIGN KEY (bank_id) REFERENCES bank (id), 
 	PRIMARY KEY (id)
 );
@@ -93,9 +97,10 @@ CREATE TABLE atm_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
+    note varchar(255),
+    address varchar(255),
     bank_id int(10),
     confident int,
-    address varchar(255),
     FOREIGN KEY (bank_id) REFERENCES bank (id), 
 	PRIMARY KEY (id)
 );
@@ -110,8 +115,9 @@ CREATE TABLE maintenance(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    iscallable boolean,
+    note varchar(255),
     address varchar(255),
+    iscallable boolean,
     phone varchar(10),
     owner int(10),
     CONSTRAINT maintenance_key
@@ -122,9 +128,10 @@ CREATE TABLE maintenance_ucf(
 	id int(10) NOT NULL AUTO_INCREMENT,
     lat float,
     lon float,
-    iscallable boolean,
+    note varchar(255),
     address varchar(255),
     phone varchar(10),
+    iscallable boolean,
     confident int,
 	PRIMARY KEY (id)
 );
