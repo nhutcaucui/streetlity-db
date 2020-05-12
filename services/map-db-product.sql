@@ -120,6 +120,7 @@ CREATE TABLE maintenance(
     iscallable boolean,
     phone varchar(10),
     owner varchar(32),
+    name varchar(32),
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
@@ -132,6 +133,7 @@ CREATE TABLE maintenance_ucf(
     address varchar(255),
     phone varchar(10),
     iscallable boolean,
+    name varchar(32),
     confident int,
 	PRIMARY KEY (id)
 );
