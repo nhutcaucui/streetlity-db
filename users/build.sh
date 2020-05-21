@@ -7,5 +7,4 @@ echo "Build image"
 docker build . -t mysql-streetlity-user
 
 echo "Done"
-#mysql -u root -p map < map-db-product.sql
-#docker exec -i mysql_container mysql -uroot -psecret mysql < db.sql
+

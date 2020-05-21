@@ -3,7 +3,7 @@
 username=$1
 password=$2
 database=$3
-file="map-db.sql"
+file="service-db.sql"
 
 if [ ! "$4" == "" ]; then
     file=$4

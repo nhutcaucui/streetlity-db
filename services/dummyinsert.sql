@@ -1,4 +1,4 @@
-USE map
+USE services
 
 INSERT INTO fuel (lat,lon) VALUES 
 (-10,-10),
