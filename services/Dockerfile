@@ -1,6 +1,6 @@
 FROM mysql:latest
 
-ADD map-db-product.sql map-db-product.sql
+ADD service-db-product.sql service-db-product.sql
 #ADD my.cnf /etc/mysql/my.cnf
 RUN mkdir -p /var/lib/mysql
 RUN mkdir -p /etc/mysql/conf.d

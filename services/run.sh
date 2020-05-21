@@ -17,6 +17,6 @@ docker run --name mysql-streetlity-api -d \
 
 echo "AWAIT CONTAINER BEING UP"
 sleep 3
-mysql -P 33060 --protocol=tcp -u root --password=streetlity --reconnect < map-db-product.sql
+mysql -P 33060 --protocol=tcp -u root --password=streetlity --reconnect < service-db-product.sql
 mysql -P 33060 --protocol=tcp -u root --password=streetlity < dummyinsert.sql
 #echo "DONE STARTING"
