@@ -2,7 +2,7 @@
 
 path=$1
 todate=$(date +%y%m%d_%H%M)
-folder="$path/backups_$todate"
+folder="$path/user_backups_$todate"
 sudo mkdir $folder
 #sudo chown devops:devops $folder
 file="$folder/backup-$(date + %F).sql"

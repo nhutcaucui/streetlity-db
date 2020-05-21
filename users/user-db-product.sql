@@ -40,5 +40,5 @@ CREATE TABLE device_tokens
     token varchar(255) NOT NULL,
     user_id varchar(32) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
-    PRIMARY KEY (token)
+    PRIMARY KEY (token, user_id)
 );
