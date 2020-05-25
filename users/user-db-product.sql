@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_infos;
 DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS device_tokens;
+DROP TABLE IF EXISTS maintenance_order;
 
 CREATE TABLE users
 (

@@ -165,6 +165,22 @@ CREATE TABLE maintenance_order(
 )
 
 CREATE TABLE review(    
+    timestamp DATETIME,
+    note varchar(512)
+    PRIMARY KEY (id)
+);
+
+-- maintenance order storage the order of common user to the maintenance user
+CREATE TABLE maintenance_order (
+    id int(15) NOT NULL AUTO_INCREMENT,
+    maintenance_user varchar(32) NOT NULL,
+    common_user varchar(32) NOT NULL,
+    timestamp DATETIME,
+    note varchar(512),
+    PRIMARY KEY (id)
+)
+
+CREATE TABLE review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     score int NOT NULL,
     body varchar(255),
