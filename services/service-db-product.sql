@@ -49,6 +49,7 @@ CREATE TABLE toilet(
     note varchar(255),
     address varchar(255),
     isworking boolean,
+    images varchar(2048),
 	PRIMARY KEY (id)
 );
 
@@ -59,6 +60,7 @@ CREATE TABLE toilet_ucf(
     note varchar(255),
     address varchar(255),
     confident int,
+    images varchar(2048),
 	PRIMARY KEY (id)
 );
 
@@ -68,6 +70,7 @@ CREATE TABLE fuel(
     lon float,
     note varchar(255),
     address varchar(255),
+    images varchar(2048),
 	PRIMARY KEY (id)
 );
 
@@ -77,6 +80,7 @@ CREATE TABLE fuel_ucf(
     lon float,
     note varchar(255),
     address varchar(255),
+    images varchar(2048),
     confident int,
 	PRIMARY KEY (id)
 );
@@ -84,7 +88,7 @@ CREATE TABLE fuel_ucf(
 CREATE TABLE bank(
     id int(10) AUTO_INCREMENT,
     name varchar(255),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id, name)
 );
 
 CREATE TABLE atm(
@@ -93,8 +97,9 @@ CREATE TABLE atm(
     lon float,
     note varchar(255),
     address varchar(255),
+    images varchar(2048),
     bank_id int(10),
-    FOREIGN KEY (bank_id) REFERENCES bank (id), 
+    , 
 	PRIMARY KEY (id)
 );
 
@@ -104,9 +109,9 @@ CREATE TABLE atm_ucf(
     lon float,
     note varchar(255),
     address varchar(255),
+    images varchar(2048),
     bank_id int(10),
     confident int,
-    FOREIGN KEY (bank_id) REFERENCES bank (id), 
 	PRIMARY KEY (id)
 );
 
@@ -117,6 +122,7 @@ CREATE TABLE maintenance(
     lon float,
     note varchar(255),
     address varchar(255),
+    images varchar(2048),
     iscallable boolean,
     phone varchar(10),
     owner varchar(32),
@@ -131,6 +137,7 @@ CREATE TABLE maintenance_ucf(
     lon float,
     note varchar(255),
     address varchar(255),
+    images varchar(2048),
     phone varchar(10),
     iscallable boolean,
     name varchar(32),
@@ -142,14 +149,27 @@ CREATE TABLE maintenance_history(
     id int(15) NOT NULL AUTO_INCREMENT,
     maintenance_user varchar(32) NOT NULL,
     common_user varchar(32) NOT NULL,
-    timestamp DATETIME,
+    reason varchar(128),
+    note varchar(128),
     PRIMARY KEY (id)
 );
 
-CREATE TABLE review(
+CREATE TABLE maintenance_order(
+    id int(15) NOT NULL AUTO_INCREMENT,
+    common_user varchar(32) NOT NULL,
+    reason varchar(128),
+    note varchar(128),
+    time date,
+    receiver varchar(2048),
+    PRIMARY KEY (id)
+)
+
+CREATE TABLE review(    
 	id int(10) NOT NULL AUTO_INCREMENT,
     score int NOT NULL,
     body varchar(255),
     PRIMARY KEY (id)
 );
 
+ALTER TABLE atm ADD FOREIGN KEY (bank_id) REFERENCES bank (id);
+ALTER TABLE atm_ucf ADD FOREIGN KEY (bank_id) REFERENCES bank (id);

@@ -1,5 +1,4 @@
-DROP DATABASE IF EXISTS user;
-CREATE DATABASE user;
+CREATE DATABASE IF NOT EXISTS user;
 USE user;
 
 DROP TABLE IF EXISTS users;
@@ -22,7 +21,7 @@ CREATE TABLE user_infos
     specific_info varchar(255),
     phone_number varchar(13),
     address varchar(255),
-    FOREIGN KEY (id) REFERENCES users(id),
+    avatar varchar(255),
     PRIMARY KEY (id)
 );
 
@@ -31,7 +30,6 @@ CREATE TABLE tokens
     id varchar(32) NOT NULL,
     refresh_token varchar(255),
     active boolean,
-    FOREIGN KEY (id) REFERENCES users(id),
     PRIMARY KEY (id)
 );
 
@@ -39,6 +37,9 @@ CREATE TABLE device_tokens
 (
     token varchar(255) NOT NULL,
     user_id varchar(32) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id),
     PRIMARY KEY (token, user_id)
 );
+
+ALTER TABLE user_infos ADD FOREIGN KEY fk_user (id) REFERENCES users (id);
+ALTER TABLE tokens ADD FOREIGN KEY fk_user (id) REFERENCES users (id);
+ALTER TABLE device_tokens ADD FOREIGN KEY fk_user (user_id) REFERENCES users (id);
