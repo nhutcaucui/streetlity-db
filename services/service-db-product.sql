@@ -99,7 +99,6 @@ CREATE TABLE atm(
     address varchar(255),
     images varchar(2048),
     bank_id int(10),
-    , 
 	PRIMARY KEY (id)
 );
 
@@ -157,14 +156,14 @@ CREATE TABLE maintenance_history(
 CREATE TABLE maintenance_order(
     id int(15) NOT NULL AUTO_INCREMENT,
     common_user varchar(32) NOT NULL,
+    maintenance_user varchar(32),
     reason varchar(128),
     note varchar(128),
-    time date,
+    timestamp date,
     receiver varchar(2048),
     status int(3),
     PRIMARY KEY (id)
-)
-
+);
 
 CREATE TABLE review(
 	id int(10) NOT NULL AUTO_INCREMENT,
