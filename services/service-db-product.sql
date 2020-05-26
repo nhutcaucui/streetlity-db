@@ -161,6 +161,7 @@ CREATE TABLE maintenance_order(
     note varchar(128),
     time date,
     receiver varchar(2048),
+    status int(3),
     PRIMARY KEY (id)
 )
 
