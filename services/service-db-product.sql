@@ -165,12 +165,45 @@ CREATE TABLE maintenance_order(
     PRIMARY KEY (id)
 );
 
-CREATE TABLE review(
+CREATE TABLE fuel_review(
 	id int(10) NOT NULL AUTO_INCREMENT,
-    score int NOT NULL,
-    body varchar(255),
+    service_id int,
+    reviewer int,
+    score float NOT NULL,
+    body varchar(1024),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE atm_review(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    service_id int,
+    reviewer int,
+    score float NOT NULL,
+    body varchar(1024),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE maintenance_review(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    service_id int,
+    reviewer int,
+    score float NOT NULL,
+    body varchar(1024),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE toilet_review(
+	id int(10) NOT NULL AUTO_INCREMENT,
+    service_id int,
+    reviewer int,
+    score float NOT NULL,
+    body varchar(1024),
     PRIMARY KEY (id)
 );
 
 ALTER TABLE atm ADD FOREIGN KEY (bank_id) REFERENCES bank (id);
 ALTER TABLE atm_ucf ADD FOREIGN KEY (bank_id) REFERENCES bank (id);
+ALTER TABLE fuel_review ADD FOREIGN KEy (service_id) REFERENCES fuel(id);
+ALTER TABLE atm_review ADD FOREIGN KEy (service_id) REFERENCES atm(id);
+ALTER TABLE maintenance_review ADD FOREIGN KEy (service_id) REFERENCES maintenance(id);
+ALTER TABLE toilet_review ADD FOREIGN KEy (service_id) REFERENCES toilet(id);
