@@ -168,7 +168,7 @@ CREATE TABLE maintenance_order(
 CREATE TABLE fuel_review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     service_id int,
-    reviewer int,
+    reviewer varchar(32),
     score float NOT NULL,
     body varchar(1024),
     PRIMARY KEY (id)
@@ -177,7 +177,7 @@ CREATE TABLE fuel_review(
 CREATE TABLE atm_review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     service_id int,
-    reviewer int,
+    reviewer varchar(32),
     score float NOT NULL,
     body varchar(1024),
     PRIMARY KEY (id)
@@ -186,7 +186,7 @@ CREATE TABLE atm_review(
 CREATE TABLE maintenance_review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     service_id int,
-    reviewer int,
+    reviewer varchar(32),
     score float NOT NULL,
     body varchar(1024),
     PRIMARY KEY (id)
@@ -195,7 +195,7 @@ CREATE TABLE maintenance_review(
 CREATE TABLE toilet_review(
 	id int(10) NOT NULL AUTO_INCREMENT,
     service_id int,
-    reviewer int,
+    reviewer varchar(32),
     score float NOT NULL,
     body varchar(1024),
     PRIMARY KEY (id)
