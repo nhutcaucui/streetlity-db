@@ -150,6 +150,7 @@ CREATE TABLE maintenance_history(
     common_user varchar(32) NOT NULL,
     reason varchar(128),
     note varchar(128),
+    timestamp int,
     PRIMARY KEY (id)
 );
 
@@ -159,7 +160,7 @@ CREATE TABLE maintenance_order(
     maintenance_user varchar(32),
     reason varchar(128),
     note varchar(128),
-    timestamp date,
+    timestamp int,
     receiver varchar(2048),
     status int(3),
     PRIMARY KEY (id)
