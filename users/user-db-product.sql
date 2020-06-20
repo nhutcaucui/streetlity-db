@@ -18,6 +18,7 @@ CREATE TABLE users
 CREATE TABLE user_infos
 (
     id varchar(32) NOT NULL,
+    name varchar(128),
     email varchar(64),
     specific_info varchar(255),
     phone_number varchar(13),
