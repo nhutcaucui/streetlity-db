@@ -50,6 +50,7 @@ CREATE TABLE toilet(
     address varchar(255),
     isworking boolean,
     images varchar(2048),
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -61,6 +62,7 @@ CREATE TABLE toilet_ucf(
     address varchar(255),
     confident int,
     images varchar(2048),
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -71,6 +73,7 @@ CREATE TABLE fuel(
     note varchar(255),
     address varchar(255),
     images varchar(2048),
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -82,6 +85,7 @@ CREATE TABLE fuel_ucf(
     address varchar(255),
     images varchar(2048),
     confident int,
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -99,6 +103,7 @@ CREATE TABLE atm(
     address varchar(255),
     images varchar(2048),
     bank_id int(10),
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -111,6 +116,7 @@ CREATE TABLE atm_ucf(
     images varchar(2048),
     bank_id int(10),
     confident int,
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -126,6 +132,7 @@ CREATE TABLE maintenance(
     phone varchar(10),
     owner varchar(32),
     name varchar(32),
+    contributor varchar(32),
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
@@ -141,6 +148,7 @@ CREATE TABLE maintenance_ucf(
     iscallable boolean,
     name varchar(32),
     confident int,
+    contributor varchar(32),
 	PRIMARY KEY (id)
 );
 
@@ -148,7 +156,7 @@ CREATE TABLE maintenance_history(
     id int(15) NOT NULL AUTO_INCREMENT,
     maintenance_user varchar(32) NOT NULL,
     common_user varchar(32) NOT NULL,
-    reason varchar(128),
+    reason varchar(512),
     note varchar(128),
     timestamp int,
     PRIMARY KEY (id)
