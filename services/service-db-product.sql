@@ -130,8 +130,8 @@ CREATE TABLE maintenance(
     images varchar(2048),
     iscallable boolean,
     phone varchar(10),
-    owner varchar(32),
-    name varchar(32),
+    maintainer varchar(4096),
+    name varchar(64),
     contributor varchar(32),
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
@@ -146,7 +146,7 @@ CREATE TABLE maintenance_ucf(
     images varchar(2048),
     phone varchar(10),
     iscallable boolean,
-    name varchar(32),
+    name varchar(64),
     confident int,
     contributor varchar(32),
 	PRIMARY KEY (id)

@@ -30,6 +30,13 @@ CREATE TABLE user_infos
     PRIMARY KEY (id)
 );
 
+CREATE TABLE emergency_maintenance
+(
+    id varchar(32) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE user_achievement
 (
     id varchar(32) NOT NULL,
@@ -46,6 +53,7 @@ CREATE TABLE user_achievement_progress
     contribute_times int,
     upvote_times int,
     downvote_times int,
+    progress_path varchar(128),
     history_path varchar(128),
     PRIMARY KEY (id)
 );

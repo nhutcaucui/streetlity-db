@@ -18,7 +18,7 @@ CREATE TABLE streets (
 	cost float,
     oneway BOOLEAN DEFAULT 0,
 	onewayfrom varchar(50),
-CONSTRAINT street_key
+    CONSTRAINT street_key
     PRIMARY KEY (id)
 );
 
