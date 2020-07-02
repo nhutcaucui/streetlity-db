@@ -27,12 +27,15 @@ CREATE TABLE user_infos
     phone_number varchar(13),
     address varchar(255),
     avatar varchar(255),
+    status int,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE emergency_maintenance
 (
     id varchar(32) NOT NULL,
+    lat float,
+    lon float,
     PRIMARY KEY (id)
 );
 
@@ -70,7 +73,7 @@ CREATE TABLE achievement
 CREATE TABLE tokens
 (
     id varchar(32) NOT NULL,
-    refresh_token varchar(255),
+    refresh_token varchar(256),
     active boolean,
     PRIMARY KEY (id)
 );
