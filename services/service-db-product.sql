@@ -53,6 +53,7 @@ CREATE TABLE fuel(
     images varchar(2048),
     contributor varchar(32),
     confident int,
+    name varchar(64),
 	PRIMARY KEY (id)
 );
 
