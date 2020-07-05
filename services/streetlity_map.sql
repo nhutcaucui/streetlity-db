@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS streets;
 DROP TABLE IF EXISTS nodes;
+DROP TABLE IF EXISTS services;
 
 CREATE TABLE streets (
 	id varchar(15) NOT NULL,

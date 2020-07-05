@@ -28,6 +28,7 @@ CREATE TABLE toilet(
     isworking boolean,
     images varchar(2048),
     contributor varchar(32),
+    confident int,
 	PRIMARY KEY (id)
 );
 
@@ -51,6 +52,7 @@ CREATE TABLE fuel(
     address varchar(255),
     images varchar(2048),
     contributor varchar(32),
+    confident int,
 	PRIMARY KEY (id)
 );
 
@@ -81,6 +83,7 @@ CREATE TABLE atm(
     images varchar(2048),
     bank_id int(10),
     contributor varchar(32),
+    confident int,
 	PRIMARY KEY (id)
 );
 
@@ -110,6 +113,7 @@ CREATE TABLE maintenance(
     maintainer varchar(4096),
     name varchar(64),
     contributor varchar(32),
+    confident int,
     CONSTRAINT maintenance_key
 	PRIMARY KEY (id)
 );
