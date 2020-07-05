@@ -2,10 +2,10 @@ CREATE DATABASE IF NOT EXISTS services;
 
 USE services;
 
-DROP TABLE IF EXISTS review;
-DROP TABLE IF EXISTS streets;
-DROP TABLE IF EXISTS nodes;
-DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS atm_review;
+DROP TABLE IF EXISTS fuel_review;
+DROP TABLE IF EXISTS maintenance_review;
+DROP TABLE IF EXISTS toilet_review;
 DROP TABLE IF EXISTS toilet;
 DROP TABLE IF EXISTS toilet_ucf;
 DROP TABLE IF EXISTS fuel;
@@ -17,28 +17,6 @@ DROP TABLE IF EXISTS maintenance;
 DROP TABLE IF EXISTS maintenance_ucf;
 DROP TABLE IF EXISTS maintenance_history;
 
-CREATE TABLE streets (
-	id varchar(15) NOT NULL,
-    generalinfo varchar(1024),
-	cost float,
-    oneway BOOLEAN DEFAULT 0,
-	onewayfrom varchar(50),
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE nodes (
-	id bigint NOT NULL AUTO_INCREMENT,
-    lat float,
-    lon float,
-    streets varchar(500),
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE services(
-	id int(10) NOT NULL AUTO_INCREMENT,
-    name varchar(50),
-	PRIMARY KEY (id)
-);
 
 CREATE TABLE toilet(
 	id int(10) NOT NULL AUTO_INCREMENT,
