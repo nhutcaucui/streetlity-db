@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS services;
-
-CREATE DATABASE services;
+CREATE DATABASE IF NOT EXISTS services;
 
 USE services;
 
