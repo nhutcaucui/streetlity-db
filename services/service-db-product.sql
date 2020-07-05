@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS bank;
 DROP TABLE IF EXISTS maintenance;
 DROP TABLE IF EXISTS maintenance_ucf;
 DROP TABLE IF EXISTS maintenance_history;
+DROP TABLE IF EXISTS maintenance_order;
 
 
 CREATE TABLE toilet(
