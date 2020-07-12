@@ -29,6 +29,7 @@ CREATE TABLE toilet(
     images varchar(2048),
     contributor varchar(32),
     confident int,
+    name varchar(128),
 	PRIMARY KEY (id)
 );
 
@@ -198,3 +199,4 @@ ALTER TABLE fuel_review ADD FOREIGN KEy (service_id) REFERENCES fuel(id);
 ALTER TABLE atm_review ADD FOREIGN KEy (service_id) REFERENCES atm(id);
 ALTER TABLE maintenance_review ADD FOREIGN KEy (service_id) REFERENCES maintenance(id);
 ALTER TABLE toilet_review ADD FOREIGN KEy (service_id) REFERENCES toilet(id);
+ALTER TABLE bank ADD FULLTEXT bank(name);
